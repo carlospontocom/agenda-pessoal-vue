@@ -5,7 +5,7 @@ import { ref } from 'vue'
 interface AgendamentoTarefa {
   titulo_evento: string
   categoria: string
-  horario_inicial: string // Data e hora de início
+  horario_inicial: string   
   descricao_evento: string
 }
 

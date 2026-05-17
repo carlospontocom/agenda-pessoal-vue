@@ -1,20 +1,33 @@
 import express from 'express';
 import cors from 'cors';
 import dotenv from 'dotenv';
+import pool from '../src/config/database.js';
 
-// Inicializa o dotenv para ler o arquivo .env
+
 dotenv.config();
 
 const app = express();
 const PORT = process.env.PORT || 3000;
 
-// Middlewares obligatórios
 app.use(cors());
-app.use(express.json()); // Permite que o Express entenda JSON enviado pelo Vue
+app.use(express.json());
 
-// Rota de teste para ver se o servidor responde
+// Rota principal
 app.get('/', (req, res) => {
-  res.json({ mensagem: "Backend rodando com sucesso!" });
+  res.json({ mensagem: "🚀 Backend rodando com sucesso!" });
+});
+
+// Rota para verificar conexão com o banco
+app.get('/status', async (req, res) => {
+  try {
+    // Apenas tenta abrir uma conexão, sem precisar de tabela
+    const conn = await pool.getConnection();
+    conn.release();
+    res.json({ mensagem: "✅ Conexão com TiDB Cloud estabelecida!" });
+  } catch (err) {
+    console.error('Erro na conexão:', err);
+    res.status(500).json({ mensagem: "❌ Erro ao conectar ao TiDB Cloud", erro: err.message });
+  }
 });
 
 // Inicia o servidor
