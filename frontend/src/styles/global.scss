@@ -1,0 +1,60 @@
+/* 1. Remove margens e paddings de todos os elementos e força o Box Sizing correto */
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* 2. Remove o comportamento de scroll elástico e foca na altura total */
+html,
+body {
+  height: 100%;
+  font-size: 16px; /* Define o tamanho base para o uso de 'rem' */
+  -webkit-text-size-adjust: 100%; /* Evita mudanças automáticas de fonte no mobile */
+}
+
+/* 3. Melhora a renderização das fontes e define um visual limpo para o body */
+body {
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+}
+
+/* 4. Torna imagens e elementos de mídia mais fáceis de controlar */
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+/* 5. Reseta elementos de formulário para herdarem a fonte do projeto */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+/* 6. Remove estilos padrões de listas (ótimo para menus) */
+ol,
+ul {
+  list-style: none;
+}
+
+/* 7. Remove sublinhados padrão de links */
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+/* 8. Evita que quebras de linha estranhas quebrem o layout em caixas de texto */
+textarea {
+  resize: vertical;
+}

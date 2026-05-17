@@ -1,0 +1,18 @@
+# Dependências (Pastas extremamente pesadas que NÃO devem ir para o Git)
+node_modules/
+dist/
+.cache/
+
+# Arquivos de variáveis de ambiente (Segurança: senhas do banco)
+.env
+.env.local
+.env.*.local
+
+# Arquivos do sistema operacional ou do VS Code
+.DS_Store
+.vscode/
+Thumbs.db
+
+# Logs de erros do Yarn / NPM
+yarn-error.log
+npm-debug.log*

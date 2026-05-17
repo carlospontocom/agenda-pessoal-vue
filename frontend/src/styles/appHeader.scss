@@ -1,0 +1,89 @@
+// Variáveis de estilo (Modifique as cores como preferir)
+$bg-color: #1a1a1a;
+$text-color: #ffffff;
+$accent-color: #42b883;
+
+.app-header {
+  background-color: $bg-color;
+  color: $text-color;
+  width: 100%;
+  position: relative;
+  z-index: 1000;
+  
+  .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 1.5rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .brand {
+    font-size: 1.5rem;
+    font-weight: bold;
+    color: $accent-color;
+  }
+
+   .nav-menu {
+    display: none;  
+    flex-direction: column;
+    gap: 1.5rem;
+    position: absolute;
+    top: 100%;  
+    left: 0;
+    width: 100%;
+    background-color: $bg-color;
+    padding: 2rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+     &.open {
+      display: flex;
+    }
+
+    li a {
+      color: $text-color;
+      font-size: 1.2rem;
+      transition: color 0.2s ease;
+
+      &:hover, &.router-link-active {
+        color: $accent-color;
+      }
+    }
+  }
+
+   .menu-toggle {
+    background: none;
+    border: none;
+    color: $text-color;
+    cursor: pointer;
+    display: block; 
+
+    span {
+      font-size: 2rem;
+    }
+
+    &:hover {
+      color: $accent-color;
+    }
+  }
+
+   @media (min-width: 768px) {
+    .menu-toggle {
+      display: none;   
+    }
+
+    .nav-menu {
+      display: flex;  
+      flex-direction: row;  
+      position: static;  
+      width: auto;
+      padding: 0;
+      box-shadow: none;
+
+      li a {
+        font-size: 1rem;
+      }
+    }
+  }
+}
